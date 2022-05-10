@@ -1,0 +1,21 @@
+{
+    "Images" : [".jpg",".png",".tiff",".jpeg",".ico",".webm",".webp",".webmp",".bmp",".apng"],
+    "GIF" :  [".gif"],
+    "Paramétre" : [".rules"],
+    "Internet" : [".url"],
+    "Vectoriel" : [".svg",".eps"],
+    "PDF" : [".pdf",".x-pdf",".psp"],
+    "PowerPoint" : [".ppt",".pptx",".odp",".ppsx"],
+    "Projets" : [".psd",".gimp",".vscode",".sketch"],
+    "Texte" : [".txt",".word",".ods",".docx",".odt"],
+    "Excel" : [".xsl",".xlb",".xlv",".csv",".xlsx",".xlsm",".xlsb",".xml"],
+    "Programmation" : [".py",".html",".php",".css",".js",".java",".c+",".c++",".c",".json"],
+    "Archives" : [".7z",".zip",".rar",".tar-gz"],
+    "Excecutable" : [".exe",".msi"],
+    "Son" : [".mp3",".aiff",".wav",".ogg",".wma",".mid",".raw",".flac",".riff"],
+    "Vidéos" : [".mp4",".mov",".avi",".mpg",".vob",".mkv",".flv"],
+    "3D" : [".obj",".3ds",".3d",".vox",".stl",".fbx",".x3d"],
+    "Ressource Photoshop" : [".abr",".pat",".hdr"],
+    "Autre" : [],
+    "Dossier" : []
+}
