@@ -3,7 +3,7 @@
 This is a experiment to use python as a tool for my actual job.
 This tool allow you to sort your files by folders using a a UI.
 
-## Usage
+## RoadMap
 
 A lot of things has to be done for that little practice program.
 
