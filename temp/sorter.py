@@ -2,14 +2,40 @@ import dearpygui.dearpygui as dpg
 
 dpg.create_context()
 
-with dpg.window(label="Tutorial"):
-    dpg.add_text("Left Click Me")
+texture_data = []
+for i in range(0, 100 * 100):
+    texture_data.append(255 / 255)
+    texture_data.append(0)
+    texture_data.append(255 / 255)
+    texture_data.append(255 / 255)
 
-    # check out simple module for details
-    with dpg.popup(dpg.last_item(), mousebutton=dpg.mvMouseButton_Left, modal=True, tag="modal_id"):
-        dpg.add_text("Êtes-vous sûr de vouloir trier ce dossier par catégories ?")
-        dpg.add_button(label="Oui", callback=lambda: dpg.configure_item("modal_id", show=False))
-        dpg.add_button(label="Non, retourner au menu", callback=lambda: dpg.configure_item("modal_id", show=False))
+with dpg.texture_registry(show=True):
+    dpg.add_dynamic_texture(100, 100, texture_data, tag="texture_tag")
+
+
+def _update_dynamic_textures(sender, app_data, user_data):
+    new_color = dpg.get_value(sender)
+    new_color[0] = new_color[0] / 255
+    new_color[1] = new_color[1] / 255
+    new_color[2] = new_color[2] / 255
+    new_color[3] = new_color[3] / 255
+
+    new_texture_data = []
+    for i in range(0, 100 * 100):
+        new_texture_data.append(new_color[0])
+        new_texture_data.append(new_color[1])
+        new_texture_data.append(new_color[2])
+        new_texture_data.append(new_color[3])
+
+    dpg.set_value("texture_tag", new_texture_data)
+
+
+with dpg.window(label="Tutorial"):
+    dpg.add_image("texture_tag")
+    dpg.add_color_picker((255, 0, 255, 255), label="Texture",
+                         no_side_preview=True, alpha_bar=True, width=200,
+                         callback=_update_dynamic_textures)
+
 
 dpg.create_viewport(title='Custom Title', width=800, height=600)
 dpg.setup_dearpygui()
