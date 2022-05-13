@@ -10,6 +10,7 @@ DESKTOP = HOME / "Desktop"
 
 shortcuts = [DOWNLOADS,MYDOCS,DESKTOP]
 
+
 class Sorter():
     def __init__(self,dir) -> None:
         self.dir = Path(dir)
