@@ -2,7 +2,7 @@ import dearpygui.dearpygui as dpg
 import sorter
 
 
-min_h = 600
+min_h = 610
 min_w = 500
 
 
