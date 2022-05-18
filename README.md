@@ -1,7 +1,11 @@
 # Mini sorter
 
-This is a experiment to use python as a tool for my actual job.
-This tool allow you to sort your files by folders using a a UI.
+Le mini sorter est un petit widget qui permet de trier les fichiers d'un dossier
+par répertoire selon les configurations que vous lui avez défini.
+
+# Téléchargement :
+Derniére version : 
+V0.1 - [Télécharger](https://github.com/Autodiagbin/Autodiag-Project-Creator/releases/download/APCv0.1/AutodiagPC.v0.1.rar)
 
 ## RoadMap
 
