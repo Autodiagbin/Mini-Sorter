@@ -1,6 +1,8 @@
 import dearpygui.dearpygui as dpg
 import sorter
 
+widget_h = 50
+
 min_h = 610
 min_w = 500
 
@@ -30,6 +32,12 @@ def proceed():
 
 def set_directory(sender, app_data, user_data):
     dpg.set_value("path", value=app_data["file_path_name"])
+    dpg.configure_viewport(item="Autodiag tools", height=widget_h)
+
+
+def bring_setup_dir(sender, app_data, user_data):
+    dpg.show_item("file_dialog_id")
+    dpg.configure_viewport(item="Autodiag tools", height=min_h)
 
 
 def load_shortcuts():
@@ -50,8 +58,9 @@ with dpg.window(label="Trieur de dossier", width=min_h, height=min_w, min_size=(
     dpg.add_group(tag="ui_folder", parent="line_widget")
 
     dpg.add_file_dialog(directory_selector=True, show=False, callback=set_directory, tag="file_dialog_id",
-                        height=min_h - 35, width=min_w - 15, modal=True)
-    dpg.add_button(label="Choisir un dossier", callback=lambda: dpg.show_item("file_dialog_id"), parent="ui_folder")
+                        height=min_h - 35, width=min_w - 15, modal=True, max_size=(min_w-15, min_h-35),
+                        min_size=(min_w-15, min_h-35))
+    dpg.add_button(label="Choisir un dossier", callback=bring_setup_dir, parent="ui_folder")
     dpg.add_input_text(label="Dossier", tag="path", enabled=False, parent="ui_folder", width=350)
     dpg.add_button(label="Trier le dossier", callback=proceed, tag="run")
     dpg.add_text("The action has failed", color=(255, 0, 0), tag="feedback", show=False)
@@ -63,7 +72,8 @@ with dpg.window(label="Trieur de dossier", width=min_h, height=min_w, min_size=(
     dpg.add_separator()
     load_shortcuts()
 
-dpg.create_viewport(title='Autodiag Tools', width=min_w, height=min_h, resizable=False)
+dpg.create_viewport(title='Autodiag Tools', width=min_w, height=widget_h, resizable=False,
+                    small_icon="data/logo.ico", large_icon="data/logo.png")
 dpg.setup_dearpygui()
 dpg.show_viewport()
 dpg.start_dearpygui()
